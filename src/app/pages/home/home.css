@@ -1,0 +1,63 @@
+.home-hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(124, 58, 237, 0.14), transparent 24%),
+    radial-gradient(circle at top right, rgba(56, 189, 248, 0.12), transparent 22%),
+    linear-gradient(135deg, #eff6ff 0%, #ffffff 45%, #eef2ff 100%);
+}
+
+.home-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.home-hero .card,
+.container .card,
+.process-step {
+  border: 1px solid rgba(124, 58, 237, 0.14);
+  background: linear-gradient(145deg, #ffffff 0%, #f5f7ff 100%);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.home-hero .card:hover,
+.container .card:hover,
+.process-step:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(79, 70, 229, 0.18);
+}
+
+.container .card {
+  border-radius: 1.1rem;
+}
+
+.process-step {
+  border-left: 4px solid #6366f1;
+}
+
+.home-hero .badge {
+  background: linear-gradient(135deg, #4f46e5, #2563eb) !important;
+}
+
+.home-hero .btn-primary {
+  background: linear-gradient(135deg, #4f46e5, #2563eb);
+  border: none;
+}
+
+.home-hero .btn-outline-primary {
+  border-color: #4f46e5;
+  color: #3730a3;
+}
+
+.feature-highlight {
+  background:
+    linear-gradient(145deg, #4338ca 0%, #2563eb 50%, #0ea5e9 100%);
+  box-shadow: 0 18px 32px rgba(79, 70, 229, 0.25);
+}

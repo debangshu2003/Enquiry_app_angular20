@@ -1,0 +1,92 @@
+/* ── Navbar ────────────────────────────────────────── */
+.navbar {
+  padding: 12px 24px !important;
+  background: #0f172a !important;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.18);
+}
+
+.navbar-brand {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff !important;
+  letter-spacing: 0.04em;
+}
+
+/* ── Nav Links ─────────────────────────────────────── */
+.navbar-nav .nav-link {
+  color: #cbd5e1 !important;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.navbar-nav .nav-link.active {
+  color: #fff !important;
+  background: rgba(34, 197, 94, 0.15);
+  border-bottom: 2px solid #22c55e;
+}
+
+/* ── Toggler (mobile) ──────────────────────────────── */
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.navbar-toggler-icon {
+  filter: invert(1);
+}
+
+/* ── Auth Area ─────────────────────────────────────── */
+.auth-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-chip {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  white-space: nowrap;
+}
+
+.auth-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 8px 20px;
+  background: #22c55e;
+  color: #052e16;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  white-space: nowrap;
+}
+
+.auth-btn:hover {
+  background: #16a34a;
+  transform: translateY(-1px);
+}
+
+.auth-btn--ghost {
+  background: transparent;
+  color: #cbd5e1;
+  border: 1.5px solid #475569;
+}
+
+.auth-btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border-color: #94a3b8;
+}
+
+/* ── Page Content ──────────────────────────────────── */
+.page-content {
+  padding: 24px;
+  min-height: calc(100vh - 64px);
+  background: #f8fafc;
+}

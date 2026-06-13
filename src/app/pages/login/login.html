@@ -1,0 +1,76 @@
+<div class="parent">
+  <div class="login-wrapper">
+    <div class="login-card" id="loginCard">
+
+      <!-- Brand -->
+      <div class="brand">
+        <div class="brand-icon"><i class="bi bi-lightning-charge-fill"></i></div>
+        <h1>Welcome back</h1>
+        <p>Sign in to your account to continue</p>
+      </div>
+
+      <!-- Form -->
+      <form id="loginForm" novalidate autocomplete="off">
+
+        <!-- Email -->
+        <div class="form-floating input-group-icon" style="animation:fadeIn .8s .3s both">
+          <i class="bi bi-envelope"></i>
+          <input type="email" [(ngModel)]="loginObj.username" name="username" class="form-control" id="emailInput" placeholder="name@example.com" required />
+          <label for="emailInput">Email address</label>
+        </div>
+
+        <!-- Password -->
+        <div class="form-floating input-group-icon" style="animation:fadeIn .8s .4s both">
+          <i class="bi bi-lock"></i>
+          <input type="password" [(ngModel)]="loginObj.password" name="password" class="form-control" id="passwordInput" placeholder="Password" required />
+          <label for="passwordInput">Password</label>
+          <button type="button" class="toggle-password" id="togglePassword" aria-label="Toggle password visibility">
+            <i class="bi bi-eye"></i>
+          </button>
+        </div>
+
+        <!-- Options -->
+        <div class="form-options">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="rememberMe" />
+            <label class="form-check-label" for="rememberMe">Remember me</label>
+          </div>
+          <a href="#">Forgot password?</a>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="btn-login" (click)="onLogin()" id="btnLogin">
+          <span>Sign In</span>
+        </button>
+      </form>
+
+      <!-- Divider -->
+      <div class="divider"><span>or continue with</span></div>
+
+      <!-- Social -->
+      <div class="social-row">
+        <button type="button" class="btn-social" aria-label="Sign in with Google"><i class="bi bi-google"></i></button>
+        <button type="button" class="btn-social" aria-label="Sign in with GitHub"><i class="bi bi-github"></i></button>
+        <button type="button" class="btn-social" aria-label="Sign in with Apple"><i class="bi bi-apple"></i></button>
+      </div>
+
+      <!-- Footer -->
+      <div class="login-footer">
+        Don't have an account? <a href="#">Create one</a>
+      </div>
+
+    </div>
+</div>
+    
+
+  <!-- Animated background -->
+  <!-- <div class="bg-layer">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div> --> -->
+
+
+
+
+  

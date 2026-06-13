@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+:root {
+  color-scheme: light;
+  --primary-color: #2563eb;
+  --secondary-color: #3b82f6;
+  --dark-bg: #0f172a;
+  --light-bg: #f8fafc;
+}
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(180deg, #f8fbff 0%, #eef5ff 100%);
+  color: #17324d;
+}

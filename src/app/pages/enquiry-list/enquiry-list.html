@@ -1,0 +1,364 @@
+  <!-- Header -->
+  <div class="page-header">
+    <div class="container-fluid px-3">
+      <div class="d-flex justify-content-between align-items-center">
+        <div>
+          <h1><i class="bi bi-headset me-1 text-primary"></i>Enquiry Management</h1>
+          <p>Track and manage all customer enquiries</p>
+        </div>
+        <button class="btn btn-primary btn-sm fw-semibold" style="font-size:.75rem;border-radius:7px;padding:4px 12px;">
+          <i class="bi bi-plus-lg me-1"></i>New Enquiry
+        </button>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="container-fluid px-3 py-2">
+ 
+    <!-- Stats -->
+    <div class="stats-bar mb-2">
+      <div class="d-flex align-items-center gap-3">
+        <div class="stat-num text-primary">8</div><div><div class="stat-lbl">Total</div></div>
+        <div class="stat-div"></div>
+        <div class="stat-num text-success">5</div><div><div class="stat-lbl">Converted</div></div>
+        <div class="stat-div"></div>
+        <div class="stat-num text-warning">2</div><div><div class="stat-lbl">Pending</div></div>
+        <div class="stat-div"></div>
+        <div class="stat-num text-danger">1</div><div><div class="stat-lbl">Overdue</div></div>
+        <div class="ms-auto">
+          <button class="btn btn-sm btn-outline-secondary" style="font-size:.72rem;border-radius:6px;padding:2px 10px;">
+            <i class="bi bi-download me-1"></i>Export
+          </button>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- Filter bar -->
+    <div class="filter-bar mb-2">
+      <div class="row g-2 align-items-center">
+        <div class="col">
+          <div class="input-group" style="height:30px;">
+            <span class="input-group-text border-end-0"><i class="bi bi-search text-muted"></i></span>
+            <input type="text" class="form-control border-start-0 ps-1" placeholder="Search name, email, ID…" style="height:30px;border-radius:0 7px 7px 0;"/>
+          </div>
+        </div>
+        <div class="col-auto">
+          <select class="form-select" style="height:30px;font-size:.75rem;border-radius:7px;">
+            <option>All Types</option><option>Product</option><option>Service</option><option>Billing</option>
+          </select>
+        </div>
+        <div class="col-auto">
+          <select class="form-select" style="height:30px;font-size:.75rem;border-radius:7px;">
+            <option>All Status</option><option>Converted</option><option>Pending</option><option>Closed</option>
+          </select>
+        </div>
+        <div class="col-auto">
+          <select class="form-select" style="height:30px;font-size:.75rem;border-radius:7px;">
+            <option>Today</option><option>This Week</option><option>This Month</option><option>All Time</option>
+          </select>
+        </div>
+        <div class="col-auto">
+          <div class="btn-group btn-group-sm">
+            <button class="btn btn-outline-secondary active" style="padding:3px 8px;border-radius:6px 0 0 6px;font-size:.75rem;"><i class="bi bi-grid-3x2-gap"></i></button>
+            <button class="btn btn-outline-secondary" style="padding:3px 8px;border-radius:0 6px 6px 0;font-size:.75rem;"><i class="bi bi-list-ul"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- Cards Grid — 4 cols on xl, 3 on lg, 2 on md -->
+    <div class="row g-2">
+ 
+      <!-- Card 1 -->
+       @for (item of enquiryList; track $index) {
+ <div class="col-xl-3 col-lg-4 col-md-6">
+        <div class="eq-card type-product">
+          <div class="eq-body">
+            <div class="eq-top">
+              <span class="eq-id">{{ item.statusId }}</span>
+              <span class="eq-type"><i class="bi bi-box me-1"></i>{{ item.enquiryType }}</span>
+            </div>
+            <div class="eq-customer">
+              <div class="eq-avatar"style="background:linear-gradient(135deg,#7c3aed,#a78bfa);">{{ item.customerName.charAt(0) }}</div>
+              <div>
+                <p class="eq-name">{{item.customerName}}</p>
+                <p class="eq-email">{{item.customerEmail}} &nbsp;·&nbsp; {{item.customerPhone}}</p>
+              </div>
+            </div>
+            <div class="eq-msg">{{ item.enquiryMessage }}</div>
+            <!-- <div class="eq-msg">The product is not working.</div> -->
+            <div class="eq-dates">
+              <div class="eq-date-item"><i class="bi bi-calendar3 me-1"></i>Enq: <span>{{ item.enquiryDate }}</span></div>
+              <div class="eq-date-item"><i class="bi bi-alarm me-1"></i>Follow-up: <span>{{ item.followUpDate }}</span></div>
+            </div>
+          </div>
+          <div class="eq-footer">
+            <div class="badges">
+              <span class="tbadge tbadge-green"><i class="bi bi-check-circle-fill"></i>{{ item.statusId }}</span>
+              <span class="tbadge tbadge-yellow"><i class="bi bi-clock-fill"></i>{{ item.status }}</span>
+            </div>
+            <div class="eq-actions">
+              <button class="eq-btn-icon" title="Edit"><i class="bi bi-pencil" style="font-size:.7rem;"></i></button>
+              <button class="eq-btn"><i class="bi bi-eye me-1"></i>View</button>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- Card 2 -->
+      <!-- <div class="col-xl-3 col-lg-4 col-md-6">
+        <div class="eq-card type-service">
+          <div class="eq-body">
+            <div class="eq-top">
+              <span class="eq-id" style="color:#7c3aed;background:#f5f3ff;border-color:#ddd6fe;">#ENQ-531</span>
+              <span class="eq-type"><i class="bi bi-tools me-1"></i>Service</span>
+            </div>
+            <div class="eq-customer">
+              <div class="eq-avatar" style="background:linear-gradient(135deg,#7c3aed,#a78bfa);">R</div>
+              <div>
+                <p class="eq-name">Riya Sharma</p>
+                <p class="eq-email">riya.sharma@email.com &nbsp;·&nbsp; 9876543210</p>
+              </div>
+            </div>
+            <div class="eq-msg" style="border-color:#7c3aed;">Service appointment not scheduled after payment.</div>
+            <div class="eq-dates">
+              <div class="eq-date-item"><i class="bi bi-calendar3 me-1"></i>Enq: <span>08 Jul 2026</span></div>
+              <div class="eq-date-item"><i class="bi bi-alarm me-1"></i>Follow-up: <span>10 Jul 2026</span></div>
+            </div>
+          </div>
+          <div class="eq-footer">
+            <div class="badges">
+              <span class="tbadge tbadge-red"><i class="bi bi-x-circle-fill"></i>Not Conv.</span>
+              <span class="tbadge tbadge-yellow"><i class="bi bi-clock-fill"></i>Pending</span>
+            </div>
+            <div class="eq-actions">
+              <button class="eq-btn-icon"><i class="bi bi-pencil" style="font-size:.7rem;"></i></button>
+              <button class="eq-btn"><i class="bi bi-eye me-1"></i>View</button>
+            </div>
+          </div>
+        </div>
+      </div> -->
+ 
+      <!-- Card 3 -->
+      <!-- <div class="col-xl-3 col-lg-4 col-md-6">
+        <div class="eq-card type-billing">
+          <div class="eq-body">
+            <div class="eq-top">
+              <span class="eq-id" style="color:#0d9488;background:#f0fdfa;border-color:#99f6e4;">#ENQ-532</span>
+              <span class="eq-type"><i class="bi bi-receipt me-1"></i>Billing</span>
+            </div>
+            <div class="eq-customer">
+              <div class="eq-avatar" style="background:linear-gradient(135deg,#0d9488,#34d399);">M</div>
+              <div>
+                <p class="eq-name">Mohit Gupta</p>
+                <p class="eq-email">mohit.g@inbox.com &nbsp;·&nbsp; 8765432109</p>
+              </div>
+            </div>
+            <div class="eq-msg" style="border-color:#0d9488;">Double charged on last invoice, need refund.</div>
+            <div class="eq-dates">
+              <div class="eq-date-item"><i class="bi bi-calendar3 me-1"></i>Enq: <span>05 Jul 2026</span></div>
+              <div class="eq-date-item"><i class="bi bi-alarm me-1"></i>Follow-up: <span>12 Jul 2026</span></div>
+            </div>
+          </div>
+          <div class="eq-footer">
+            <div class="badges">
+              <span class="tbadge tbadge-green"><i class="bi bi-check-circle-fill"></i>Converted</span>
+              <span class="tbadge tbadge-blue"><i class="bi bi-check2-all"></i>Resolved</span>
+            </div>
+            <div class="eq-actions">
+              <button class="eq-btn-icon"><i class="bi bi-pencil" style="font-size:.7rem;"></i></button>
+              <button class="eq-btn"><i class="bi bi-eye me-1"></i>View</button>
+            </div>
+          </div>
+        </div>
+      </div> -->
+ 
+      <!-- Card 4 -->
+      <!-- <div class="col-xl-3 col-lg-4 col-md-6">
+        <div class="eq-card type-general">
+          <div class="eq-body">
+            <div class="eq-top">
+              <span class="eq-id" style="color:#ea580c;background:#fff7ed;border-color:#fed7aa;">#ENQ-533</span>
+              <span class="eq-type"><i class="bi bi-chat-dots me-1"></i>General</span>
+            </div>
+            <div class="eq-customer">
+              <div class="eq-avatar" style="background:linear-gradient(135deg,#ea580c,#fb923c);">P</div>
+              <div>
+                <p class="eq-name">Priya Mehta</p>
+                <p class="eq-email">priya.mehta@mail.com &nbsp;·&nbsp; 7654321098</p>
+              </div>
+            </div>
+            <div class="eq-msg" style="border-color:#ea580c;">Need info on product warranty and return policy.</div>
+            <div class="eq-dates">
+              <div class="eq-date-item"><i class="bi bi-calendar3 me-1"></i>Enq: <span>07 Jul 2026</span></div>
+              <div class="eq-date-item"><i class="bi bi-alarm me-1"></i>Follow-up: <span>14 Jul 2026</span></div>
+            </div>
+          </div>
+          <div class="eq-footer">
+            <div class="badges">
+              <span class="tbadge tbadge-red"><i class="bi bi-x-circle-fill"></i>Not Conv.</span>
+              <span class="tbadge tbadge-yellow"><i class="bi bi-clock-fill"></i>Pending</span>
+            </div>
+            <div class="eq-actions">
+              <button class="eq-btn-icon"><i class="bi bi-pencil" style="font-size:.7rem;"></i></button>
+              <button class="eq-btn"><i class="bi bi-eye me-1"></i>View</button>
+            </div>
+          </div>
+        </div>
+      </div> -->
+ 
+      <!-- Card 5 -->
+      <!-- <div class="col-xl-3 col-lg-4 col-md-6">
+        <div class="eq-card type-product">
+          <div class="eq-body">
+            <div class="eq-top">
+              <span class="eq-id">#ENQ-534</span>
+              <span class="eq-type"><i class="bi bi-box me-1"></i>Product</span>
+            </div>
+            <div class="eq-customer">
+              <div class="eq-avatar" style="background:linear-gradient(135deg,#0284c7,#38bdf8);">S</div>
+              <div>
+                <p class="eq-name">Saurabh Joshi</p>
+                <p class="eq-email">s.joshi@corp.com &nbsp;·&nbsp; 6543210987</p>
+              </div>
+            </div>
+            <div class="eq-msg">Item received is damaged. Requesting replacement.</div>
+            <div class="eq-dates">
+              <div class="eq-date-item"><i class="bi bi-calendar3 me-1"></i>Enq: <span>06 Jul 2026</span></div>
+              <div class="eq-date-item"><i class="bi bi-alarm me-1"></i>Follow-up: <span>08 Jul 2026</span></div>
+            </div>
+          </div>
+          <div class="eq-footer">
+            <div class="badges">
+              <span class="tbadge tbadge-green"><i class="bi bi-check-circle-fill"></i>Converted</span>
+              <span class="tbadge tbadge-blue"><i class="bi bi-check2-all"></i>Resolved</span>
+            </div>
+            <div class="eq-actions">
+              <button class="eq-btn-icon"><i class="bi bi-pencil" style="font-size:.7rem;"></i></button>
+              <button class="eq-btn"><i class="bi bi-eye me-1"></i>View</button>
+            </div>
+          </div>
+        </div>
+      </div> -->
+ 
+      <!-- Card 6 -->
+      <!-- <div class="col-xl-3 col-lg-4 col-md-6">
+        <div class="eq-card type-service">
+          <div class="eq-body">
+            <div class="eq-top">
+              <span class="eq-id" style="color:#7c3aed;background:#f5f3ff;border-color:#ddd6fe;">#ENQ-535</span>
+              <span class="eq-type"><i class="bi bi-tools me-1"></i>Service</span>
+            </div>
+            <div class="eq-customer">
+              <div class="eq-avatar" style="background:linear-gradient(135deg,#be185d,#f472b6);">N</div>
+              <div>
+                <p class="eq-name">Neha Kulkarni</p>
+                <p class="eq-email">neha.k@webmail.in &nbsp;·&nbsp; 5432109876</p>
+              </div>
+            </div>
+            <div class="eq-msg" style="border-color:#7c3aed;">Technician did not show up at scheduled time.</div>
+            <div class="eq-dates">
+              <div class="eq-date-item"><i class="bi bi-calendar3 me-1"></i>Enq: <span>04 Jul 2026</span></div>
+              <div class="eq-date-item"><i class="bi bi-alarm me-1"></i>Follow-up: <span>06 Jul 2026</span></div>
+            </div>
+          </div>
+          <div class="eq-footer">
+            <div class="badges">
+              <span class="tbadge tbadge-green"><i class="bi bi-check-circle-fill"></i>Converted</span>
+              <span class="tbadge tbadge-yellow"><i class="bi bi-clock-fill"></i>Active</span>
+            </div>
+            <div class="eq-actions">
+              <button class="eq-btn-icon"><i class="bi bi-pencil" style="font-size:.7rem;"></i></button>
+              <button class="eq-btn"><i class="bi bi-eye me-1"></i>View</button>
+            </div>
+          </div>
+        </div>
+      </div> -->
+ 
+      <!-- Card 7 -->
+      <!-- <div class="col-xl-3 col-lg-4 col-md-6">
+        <div class="eq-card type-billing">
+          <div class="eq-body">
+            <div class="eq-top">
+              <span class="eq-id" style="color:#0d9488;background:#f0fdfa;border-color:#99f6e4;">#ENQ-536</span>
+              <span class="eq-type"><i class="bi bi-receipt me-1"></i>Billing</span>
+            </div>
+            <div class="eq-customer">
+              <div class="eq-avatar" style="background:linear-gradient(135deg,#b45309,#fbbf24);">V</div>
+              <div>
+                <p class="eq-name">Vikram Patil</p>
+                <p class="eq-email">vikram.p@biz.com &nbsp;·&nbsp; 4321098765</p>
+              </div>
+            </div>
+            <div class="eq-msg" style="border-color:#0d9488;">GST invoice not generated for last order.</div>
+            <div class="eq-dates">
+              <div class="eq-date-item"><i class="bi bi-calendar3 me-1"></i>Enq: <span>03 Jul 2026</span></div>
+              <div class="eq-date-item"><i class="bi bi-alarm me-1"></i>Follow-up: <span>05 Jul 2026</span></div>
+            </div>
+          </div>
+          <div class="eq-footer">
+            <div class="badges">
+              <span class="tbadge tbadge-red"><i class="bi bi-x-circle-fill"></i>Not Conv.</span>
+              <span class="tbadge tbadge-gray"><i class="bi bi-dash-circle"></i>Closed</span>
+            </div>
+            <div class="eq-actions">
+              <button class="eq-btn-icon"><i class="bi bi-pencil" style="font-size:.7rem;"></i></button>
+              <button class="eq-btn"><i class="bi bi-eye me-1"></i>View</button>
+            </div>
+          </div>
+        </div>
+      </div> -->
+ 
+      <!-- Card 8 -->
+      <!-- <div class="col-xl-3 col-lg-4 col-md-6">
+        <div class="eq-card type-general">
+          <div class="eq-body">
+            <div class="eq-top">
+              <span class="eq-id" style="color:#ea580c;background:#fff7ed;border-color:#fed7aa;">#ENQ-537</span>
+              <span class="eq-type"><i class="bi bi-chat-dots me-1"></i>General</span>
+            </div>
+            <div class="eq-customer">
+              <div class="eq-avatar" style="background:linear-gradient(135deg,#4f46e5,#818cf8);">K</div>
+              <div>
+                <p class="eq-name">Kavita Rao</p>
+                <p class="eq-email">kavita.rao@net.in &nbsp;·&nbsp; 3210987654</p>
+              </div>
+            </div>
+            <div class="eq-msg" style="border-color:#ea580c;">Enquiring about bulk order discounts for office supply.</div>
+            <div class="eq-dates">
+              <div class="eq-date-item"><i class="bi bi-calendar3 me-1"></i>Enq: <span>02 Jul 2026</span></div>
+              <div class="eq-date-item"><i class="bi bi-alarm me-1"></i>Follow-up: <span>09 Jul 2026</span></div>
+            </div>
+          </div>
+          <div class="eq-footer">
+            <div class="badges">
+              <span class="tbadge tbadge-green"><i class="bi bi-check-circle-fill"></i>Converted</span>
+              <span class="tbadge tbadge-blue"><i class="bi bi-check2-all"></i>Resolved</span>
+            </div>
+            <div class="eq-actions">
+              <button class="eq-btn-icon"><i class="bi bi-pencil" style="font-size:.7rem;"></i></button>
+              <button class="eq-btn"><i class="bi bi-eye me-1"></i>View</button>
+            </div>
+          </div>
+        </div>
+      </div> -->
+       }
+     
+ 
+    </div><!-- /row -->
+ 
+    <!-- Pagination -->
+    <div class="d-flex justify-content-between align-items-center mt-3">
+      <p class="text-muted mb-0" style="font-size:.72rem;">Showing <strong>1–8</strong> of <strong>8</strong> enquiries</p>
+      <nav>
+        <ul class="pagination pagination-sm mb-0" style="gap:3px;">
+          <li class="page-item disabled"><a class="page-link"><i class="bi bi-chevron-left"></i></a></li>
+          <li class="page-item active"><a class="page-link" style="background:var(--primary);border-color:var(--primary);">1</a></li>
+          <li class="page-item"><a class="page-link">2</a></li>
+          <li class="page-item"><a class="page-link">3</a></li>
+          <li class="page-item disabled"><a class="page-link"><i class="bi bi-chevron-right"></i></a></li>
+        </ul>
+      </nav>
+    </div>
+ 
+  </div>
